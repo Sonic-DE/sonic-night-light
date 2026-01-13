@@ -4,16 +4,15 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(PROJECT_VERSION "6.7.4")
+set(PROJECT_VERSION "6.6.80")
 project(KNightTime VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(PROJECT_DEP_VERSION "6.7.0")
+set(PROJECT_DEP_VERSION "6.5.90")
 set(QT_MIN_VERSION "6.10.0")
-set(KF6_MIN_VERSION "6.26.0")
+set(KF6_MIN_VERSION "6.22.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
@@ -52,8 +51,8 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     I18n
 )
 
-ecm_set_disabled_deprecation_versions(QT 6.11.0
-    KF 6.26.0
+ecm_set_disabled_deprecation_versions(QT 6.9.0
+    KF 6.16.0
 )
 
 check_cxx_compiler_flag(-Wno-unused-parameter COMPILER_UNUSED_PARAMETER_SUPPORTED)
@@ -94,8 +93,7 @@ install(EXPORT KNightTimeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE K
 ki18n_install(po)
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
-list(FILTER ALL_CLANG_FORMAT_SOURCE_FILES EXCLUDE REGEX ".*\\.ccls-cache/.*")
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
-feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
