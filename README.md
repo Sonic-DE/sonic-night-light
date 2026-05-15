@@ -4,14 +4,14 @@
     SPDX-License-Identifier: CC0-1.0
 -->
 
-# KNightTime
+# sonic-night-light
 
-The `KNightTime` provides helpers for scheduling the dark-light cycle. It can be used to implement
+The `sonic-night-light` provides helpers for scheduling the dark-light cycle. It can be used to implement
 features such as adjusting the screen color temperature based on time of day, etc.
 
 ## Features
 
-The `KNightTime` offers a system service that provides the schedule and a client library to subscribe
+The `sonic-night-light` offers a system service that provides the schedule and a client library to subscribe
 to the updates from the daemon.
 
 Example usage:
