@@ -2,7 +2,7 @@
 
 SonicDE's night light service, which warms your screen's colours in the evening to make it easier on your eyes.
 
-## Unreleased
+## 6.8.2 (2026-11-10)
 
 - Now presents itself with SonicDE names and identity throughout the desktop.
 
